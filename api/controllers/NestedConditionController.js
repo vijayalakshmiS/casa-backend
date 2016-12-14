@@ -1,7 +1,7 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       /**
- * NestedconditionController
+ * NestedConditionController
  *
- * @description :: Server-side logic for managing nestedconditions
+ * @description :: Server-side logic for managing NestedConditions
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
@@ -10,7 +10,7 @@ module.exports = {
 
 
   /**
-   * `NestedconditionController.index()`
+   * `NestedConditionController.index()`
    */
   index: function (req, res) {
     return res.json({
@@ -20,114 +20,100 @@ module.exports = {
 
 
   /**
-   * `NestedconditionController.show()`
+   * `NestedConditionController.show()`
    */
   show: function (req, res) {
-    console.log("show");
     var id = req.param('id');
-    console.log(id);
-    Nestedcondition.findOne(id).exec(function(err,showNestedcondition){
+    NestedCondition.findOne(id).exec(function(err,showNestedCondition){
       if(err){
         console.log(err);
         res.send(err,500);
       }
-      console.log(showNestedcondition);
-      res.json(showNestedcondition);
+      console.log(showNestedCondition);
+      res.json(showNestedCondition);
     });
   },
 
 
   /**
-   * `NestedconditionController.new()`
+   * `NestedConditionController.new()`
    */
   new: function (req, res) {
     return res.json();
-    //console.log("new");
   },
 
 
   /**
-   * `NestedconditionController.create()`
+   * `NestedConditionController.create()`
    */
    create: function (req, res) {
    var param = req.allParams();
-   console.log(param);
-   Nestedcondition.create(param, function(err, createNestedcondition){
+   NestedCondition.create(param, function(err, createNestedCondition){
     if(err){
       console.log(err);
       res.send(err,500);
     }
-    console.log(createNestedcondition);
-    res.json(createNestedcondition);
+    console.log(createNestedCondition);
+    res.json(createNestedCondition);
    });
   },
 
   /**
-   * `NestedconditionController.edit()`
+   * `NestedConditionController.edit()`
    */
   edit: function (req, res) {
     var id = req.param('id');
-    //console.log(id);
-    Nestedcondition.findOne(id, function(err, editNestedcondition){
+    NestedCondition.findOne(id, function(err, editNestedCondition){
       if(err){
         res.send(err,500);
       }
-      //console.log(editNestedcondition);
-      res.json('editNestedcondition');
+      res.json('editNestedCondition');
     });
     },
 
 
   /**
-   * `NestedconditionController.update()`
+   * `NestedConditionController.update()`
    */
   update: function (req, res) {
     var id = req.param('id');
-    //console.log(id);
     var param = req.allParams();
-    //console.log(param);
-    Nestedcondition.update(id, param, function(err,updateNestedcondition){
+    NestedCondition.update(id, param, function(err,updateNestedCondition){
       if(err){
         res.send(err,500);
-      }
-      //console.log(updateNestedcondition);
-      res.json({response: updateNestedcondition});
+      }      
+      res.json({response: updateNestedCondition});
     });
   },
 
 
   /**
-   * `NestedconditionController.destroy()`
+   * `NestedConditionController.destroy()`
    */
   destroy: function (req, res) {
     var id = req.param('id');
-    console.log(id);  
-    Nestedcondition.findOne(id, function(err, findNestedcondition){
+    NestedCondition.findOne(id, function(err, findNestedCondition){
       if(err){
         res.send(err,500);
       }
-      console.log(findNestedcondition);
 
-    Operatorfunction.findOne({nested_id:id}, function(err, findoperator){
-    if(err){
-      res.send(err, 500);
-    }
-    console.log(findoperator);
+   //  OperatorFunction.findOne({nested_id:id}, function(err, findOperatorFunction){
+   //  if(err){
+   //    res.send(err, 500);
+   //  }
 
-   Operatorfunction.destroy({nested_id:id}, function(err, destroyed){
-      if(err){
-        res.send(err, 500);
-      }
-      // console.log(destroyed);
-    });
-      Nestedcondition.destroy(id, function(err, deleteNestedcondition){
+   // OperatorFunction.destroy({nested_id:id}, function(err, deleteOperatorFunction){
+   //    if(err){
+   //      res.send(err, 500);
+   //    }
+   //  });
+      NestedCondition.destroy(id, function(err, deleteNestedCondition){
         if(err){
           res.send(err,500);
         }
-        // console.log(deleteNestedcondition);
-      });
+      // });
     });
-    res.json('deleteNestedcondition');
+    res.json('deleteNestedCondition');
     });
   }
 };

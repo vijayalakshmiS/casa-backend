@@ -24,17 +24,17 @@ module.exports = {
     },
 
     nestedConditions: {
-      collection:'nestedcondition',
+      collection:'nestedCondition',
       via: 'ruleId'
     },
 
     singleConditions: {
-      collection: 'singlecondition',
+      collection: 'singleCondition',
       via: 'ruleId'
     },
 
     customerSegments: {
-      collection: 'customersegment',
+      collection: 'customerSegment',
       via: 'ruleId'
     }
   }

@@ -36,12 +36,99 @@ module.exports.routes = {
         view: 'homepage'
     },
 
-    //routes for group
-    'post /groups': {
-        controller: 'group',
-        action: 'create'
-    },
 
+  'get /entity/:id':
+  {
+    controller: 'entity',
+    action: 'show'
+  },
+
+  'post /entity':
+  {
+    controller: 'entity',
+    action: 'create'
+  },
+
+  'put /entity/:id':
+  {
+    controller: 'entity',
+    action: 'update'
+  },
+
+  'delete /entity/:id':
+  {
+    controller: 'entity',
+    action: 'destroy'
+  },
+
+ //routes for fields
+ 'post /fields':
+ {
+  controller: 'fields',
+  action: 'create'
+ } ,
+
+ 'get /fields':
+ {
+  controller: 'fields',
+  action: 'show'
+ },
+
+ 'put /fields/:id':
+ {
+  controller: 'fields',
+  action: 'update'
+ },
+
+ 'delete /fields/:id':
+ {
+  controller: 'fields',
+  action: 'destroy'
+},
+    //routes for peoples
+
+  'get /peoples':
+  {
+    controller: 'people',
+    action: 'show'
+  },
+  'post /peoples':
+  {
+    controller: 'people',
+    action: 'create'
+  },
+  'put /peoples/:id':
+  {
+    controller: 'people',
+    action: 'update'
+  },
+  'delete /peoples/:id':
+  {
+    controller: 'people',
+    action: 'destroy'
+  },
+
+  //routes for groups
+  'get /groups':
+  {
+    controller: 'group',
+    action: 'show'
+  },
+  'post /groups':
+  {
+    controller: 'group',
+    action: 'create'
+  },
+  'put /groups/:id':
+  {
+    controller: 'group',
+    action: 'update'
+  },
+  'delete /groups/:id':
+  {
+    controller: 'group',
+    action: 'destroy'
+  },
 
     'get /rules': {
         controller: 'rule',
@@ -79,149 +166,146 @@ module.exports.routes = {
     },
 
     'get /nestedconditions': {
-        controller: 'nestedcondition',
+        controller: 'nestedCondition',
         action: 'index'
     },
 
     'get /nestedconditions/:id': {
-        controller: 'nestedcondition',
+        controller: 'nestedCondition',
         action: 'show'
     },
 
     'get /nestedconditions/new': {
-        controller: 'nestedcondition',
+        controller: 'nestedCondition',
         action: 'new'
     },
 
     'post /nestedconditions': {
-        controller: 'nestedcondition',
+        controller: 'nestedCondition',
         action: 'create'
     },
 
     'get /nestedconditions/edit/:id': {
-        controller: 'nestedcondition',
+        controller: 'nestedCondition',
         action: 'edit'
     },
 
     'put /nestedconditions/:id': {
-        controller: 'nestedcondition',
+        controller: 'nestedCondition',
         action: 'update'
     },
 
     'delete /nestedconditions/:id': {
-        controller: 'nestedcondition',
+        controller: 'nestedCondition',
         action: 'destroy'
     },
 
     'get /singleconditions': {
-        controller: 'singlecondition',
+        controller: 'singleCondition',
         action: 'index'
     },
 
     'get /singleconditions/:id': {
-        controller: 'singlecondition',
+        controller: 'singleCondition',
         action: 'show'
     },
 
     'get /singleconditions/new': {
-        controller: 'singlecondition',
+        controller: 'singleCondition',
         action: 'new'
     },
 
     'post /singleconditions': {
-        controller: 'singlecondition',
+        controller: 'singleCondition',
         action: 'create'
     },
 
     'get /singleconditions/edit/:id': {
-        controller: 'singlecondition',
+        controller: 'singleCondition',
         action: 'edit'
     },
 
     'put /singleconditions/:id': {
-        controller: 'singlecondition',
+        controller: 'singleCondition',
         action: 'update'
     },
 
     'delete /singleconditions/:id': {
-        controller: 'singlecondition',
+        controller: 'singleCondition',
         action: 'destroy'
     },
 
     'get /customersegments': {
-        controller: 'customersegment',
+        controller: 'customerSegment',
         action: 'index'
     },
 
     'get /customersegments/:id': {
-        controller: 'customersegment',
+        controller: 'customerSegment',
         action: 'show'
     },
 
     'get /customersegments/new': {
-        controller: 'customersegment',
+        controller: 'customerSegment',
         action: 'new'
     },
 
     'post /customersegments': {
-        controller: 'customersegment',
+        controller: 'customerSegment',
         action: 'create'
     },
 
     'get /customersegments/edit/:id': {
-        controller: 'customersegment',
+        controller: 'customerSegment',
         action: 'edit'
     },
 
     'put /customersegments/:id': {
-        controller: 'customersegment',
+        controller: 'customerSegment',
         action: 'update'
     },
 
     'delete /customersegments/:id': {
-        controller: 'customersegment',
+        controller: 'customerSegment',
         action: 'destroy'
     },
 
     'get /operatorfunctions': {
-        controller: 'operatorfunction',
+        controller: 'operatorFunction',
         action: 'index'
     },
 
     'get /operatorfunctions/:id': {
-        controller: 'operatorfunction',
+        controller: 'operatorFunction',
         action: 'show'
     },
 
     'get /operatorfunctions/new': {
-        controller: 'operatorfunction',
+        controller: 'operatorFunction',
         action: 'new'
     },
 
     'post /operatorfunctions': {
-        controller: 'operatorfunction',
+        controller: 'operatorFunction',
         action: 'create'
     },
 
     'get /operatorfunctions/edit/:id': {
-        controller: 'operatorfunction',
+        controller: 'operatorFunction',
         action: 'edit'
     },
 
     'put /operatorfunctions/:id': {
-        controller: 'operatorfunction',
+        controller: 'operatorFunction',
         action: 'update'
     },
 
     'delete /operatorfunctions/:id': {
-        controller: 'operatorfunction',
+        controller: 'operatorFunction',
         action: 'destroy'
     },
 
-
-
-
-    // 
+    // routes for templates
 
     'get /templates/:id': {
         controller: 'template',

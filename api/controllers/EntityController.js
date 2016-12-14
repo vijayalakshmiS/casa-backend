@@ -22,9 +22,9 @@ module.exports = {
      */
     show: function(req, res) {      
         var id = req.param('id');
-        Entity.find().populate('fields').exec(function(err, entityshow) {
+        Entity.find().populate('fields').exec(function(err, entityShow) {
             if (err) return res.send(err, 500);
-            res.json({ entityshow: entityshow });
+            res.json({ entityshow: entityShow });
         });
     },
 
@@ -38,10 +38,10 @@ module.exports = {
         Entity.create(params, function(err, create) {
             if (err) return res.send(err, 500)
             var id = create.id;
-            Entity.findOne({ id: id }).populate('fields').exec(function(err, entitycreate) {
+            Entity.findOne({ id: id }).populate('fields').exec(function(err, entityCreate) {
                 if (err) return res.send(err, 500);
                 // console.log(create);
-                res.json(entitycreate);
+                res.json(entityCreate);
             });
         });
     },
@@ -63,11 +63,11 @@ module.exports = {
     update: function(req, res) {
         var params = req.params.all();
         var id = req.param('id');
-        Entity.update(id, params, function(err, entityupdate) {
+        Entity.update(id, params, function(err, entityUpdate) {
             if (err) return res.send(err, 500);
-            Fields.destroy({ entityId: null }).exec(function(err, fielddestroy) {
+            Fields.destroy({ entityId: null }).exec(function(err, fieldDestroy) {
                 if (err) return res.send(err, 500);
-                console.log(fielddestroy);
+                console.log(fieldDestroy);
             });
             Entity.find({ id: id }).populate('fields').exec(function(err, update) {
                 if (err) return res.send(err, 500);
@@ -82,9 +82,9 @@ module.exports = {
         var id = req.param('id');
         Entity.find(id, function(err, destroy) {
             if (err) return res.send(err, 500);
-            Entity.destroy({ id: id }).exec(function(err, entitydelete) {
+            Entity.destroy({ id: id }).exec(function(err, entityDelete) {
                 if (err) return res.send(err, 500);
-                Fields.destroy({ entityId: id }).exec(function(err, fieldsdelete) {
+                Fields.destroy({ entityId: id }).exec(function(err, fieldsDelete) {
                     if (err) return res.send(err, 500);
                     res.json({ entitydelete: "delete" });
                 });

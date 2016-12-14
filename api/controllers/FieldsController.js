@@ -24,9 +24,9 @@ module.exports = {
      */
     show: function(req, res) {
         var id = req.param('id');
-        Fields.find().exec(function(err, fieldshow) {
+        Fields.find().exec(function(err, fieldShow) {
             if (err) return res.send(err, 500);
-            res.json({ fieldshow: fieldshow });
+            res.json({ fieldshow: fieldShow });
         });
     },
 
@@ -37,9 +37,9 @@ module.exports = {
     create: function(req, res) {  
         var params = req.params.all();
         console.log(params);
-        Fields.create(params, function(err, fieldcreate) {
+        Fields.create(params, function(err, fieldCreate) {
             if (err) return res.send(err, 500);
-            res.json({ fieldcreate: fieldcreate });
+            res.json({ fieldcreate: fieldCreate });
         });
     },
 
@@ -61,9 +61,9 @@ module.exports = {
         var param = req.params.all();
         var id = req.param('id');
 
-        Fields.update(id, param, function(err, fieldupdate) {
+        Fields.update(id, param, function(err, fieldUpdate) {
             if (err) return res.send(err, 500);
-            res.json({ fieldupdate: fieldupdate });
+            res.json({ fieldupdate: fieldUpdate });
         });
 
     },
@@ -75,7 +75,7 @@ module.exports = {
     destroy: function(req, res) {
         var id = req.param('id');
         console.log(id);
-        Fields.destroy(id, function(err, fielddestroy) {
+        Fields.destroy(id, function(err, fieldDestroy) {
             if (err) return res.send(err, 500);
             res.json({ fielddelete: "delete" });
         });

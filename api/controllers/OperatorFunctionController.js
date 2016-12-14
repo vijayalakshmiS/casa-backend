@@ -1,7 +1,7 @@
 /**
- * OperatorfunctionController
+ * OperatorFunctionController
  *
- * @description :: Server-side logic for managing operatorfunctions
+ * @description :: Server-side logic for managing OperatorFunctions
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
@@ -10,7 +10,7 @@ module.exports = {
 
 
   /**
-   * `OperatorfunctionController.index()`
+   * `OperatorFunctionController.index()`
    */
   index: function (req, res) {
     return res.json({
@@ -20,22 +20,21 @@ module.exports = {
 
 
   /**
-   * `OperatorfunctionController.show()`
+   * `OperatorFunctionController.show()`
    */
   show: function (req, res) {
     var id = req.param('id');
-    Operatorfunction.findOne(id, function(err, show){
+    OperatorFunction.findOne(id, function(err, show){
       if(err){
         res.send(err, 400);
       }
-      console.log(show);
       res.json(show);
     });
   },
 
 
   /**
-   * `OperatorfunctionController.new()`
+   * `OperatorFunctionController.new()`
    */
   new: function (req, res) {
     return res.json({
@@ -45,67 +44,62 @@ module.exports = {
 
 
   /**
-   * `OperatorfunctionController.create()`
+   * `OperatorFunctionController.create()`
    */
   create: function (req, res) {
     var param = req.allParams();
-    console.log(param);
-    Operatorfunction.create(param, function(err, created){
+    OperatorFunction.create(param, function(err, created){
       if(err){
         res.send(err, 500);
       }
-      console.log(created);
       res.json(created);
     });
   },
 
 
   /**
-   * `OperatorfunctionController.edit()`
+   * `OperatorFunctionController.edit()`
    */
   edit: function (req, res) {
     var id = req.param('id');
-    Operatorfunction.findOne(id, function(err, edited){
+    OperatorFunction.findOne(id, function(err, edited){
       if(err){
         res.send(err, 500);
       }
-      console.log(edited);
       res.json(edited);
     });
   },
 
 
   /**
-   * `OperatorfunctionController.update()`
+   * `OperatorFunctionController.update()`
    */
   update: function (req, res) {
    var id = req.param('id');
    var param = req.allParams();
-   Operatorfunction.update(id, param, function(err, updated){
+   OperatorFunction.update(id, param, function(err, updated){
     if(err){
       res.send(err, 500);
     }
-    console.log(updated);
     res.json(updated);
    });
   },
 
 
   /**
-   * `OperatorfunctionController.destroy()`
+   * `OperatorFunctionController.destroy()`
    */
   destroy: function (req, res) {
    var id = req.param('id');
-   Operatorfunction.findOne(id, function(err, findoperator){
+   OperatorFunction.findOne(id, function(err, findOperatorFunction){
     if(err){
       res.send(err, 500);
     }
-    console.log(findoperator);
-    Operatorfunction.destroy(id, function(err, destroyed){
+    console.log(findOperatorFunction);
+    OperatorFunction.destroy(id, function(err, destroyed){
       if(err){
         res.send(err, 500);
       }
-      console.log(destroyed);
       res.json(destroyed);
     });
    });
